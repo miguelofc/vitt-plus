@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  backendUrl: "http://localhost:3333",
+  backendUrl: "https://vitt-plus-backend.onrender.com",
 };
