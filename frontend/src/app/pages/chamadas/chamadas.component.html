@@ -1,0 +1,73 @@
+<section class="space-y-6">
+  <header class="flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        Chamada WebRTC
+      </h1>
+      <p class="text-sm text-slate-500 dark:text-slate-400">
+        Inicie uma sala de atendimento e compartilhe o código com o paciente.
+      </p>
+    </div>
+  </header>
+
+  <div
+    class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start"
+  >
+    <div
+      class="lg:col-span-2 rounded-3xl bg-slate-900 border border-slate-800 shadow-soft p-3 relative aspect-video flex items-center justify-center"
+    >
+      <video
+        #remoteVideo
+        class="w-full h-full rounded-2xl bg-slate-800 object-cover"
+      ></video>
+
+      <video
+        #localVideo
+        class="w-40 h-28 rounded-2xl bg-slate-700 object-cover border border-slate-600 absolute bottom-4 right-4 shadow-soft"
+      ></video>
+    </div>
+
+    <div
+      class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 space-y-4 shadow-soft"
+    >
+      <h2 class="text-sm font-semibold">Controles da chamada</h2>
+
+      <div class="space-y-3">
+        <div class="space-y-1">
+          <label class="text-xs text-slate-500">Código da sala</label>
+          <input
+            class="input-field"
+            [(ngModel)]="roomId"
+            placeholder="Digite ou gere um código"
+          />
+        </div>
+
+        <div class="flex gap-3">
+          <button
+            class="btn-primary text-xs flex-1"
+            (click)="createRoom()"
+            [disabled]="creatingRoom"
+          >
+            <span *ngIf="!creatingRoom">Criar sala</span>
+            <span *ngIf="creatingRoom" class="animate-pulse">Criando</span>
+          </button>
+
+          <button
+            class="btn-outline text-xs flex-1"
+            (click)="joinRoom()"
+            [disabled]="joiningRoom"
+          >
+            <span *ngIf="!joiningRoom">Entrar na sala</span>
+            <span *ngIf="joiningRoom" class="animate-pulse">Entrando</span>
+          </button>
+        </div>
+
+        <p class="text-xs text-slate-500">
+          Nesta versão a sala já é integrada ao backend e ao Firestore pelo servidor.
+          A evolução natural é adicionar troca de offer, answer e candidates com base neste
+          mesmo código, conectando local e remoto em tempo real.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

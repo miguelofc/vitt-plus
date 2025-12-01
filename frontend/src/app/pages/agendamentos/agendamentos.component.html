@@ -1,0 +1,126 @@
+<section class="space-y-6">
+  <header class="flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        Agendamentos
+      </h1>
+      <p class="text-sm text-slate-500 dark:text-slate-400">
+        Gerencie consultas e mantenha a agenda sempre organizada.
+      </p>
+    </div>
+
+    <button class="btn-primary text-sm" (click)="openModal()">
+      Novo agendamento
+    </button>
+  </header>
+
+  <div
+    class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft overflow-hidden"
+  >
+    <table class="w-full text-sm">
+      <thead class="bg-slate-50 dark:bg-slate-900/60">
+        <tr>
+          <th class="text-left px-4 py-3 text-xs text-slate-500">Médico</th>
+          <th class="text-left px-4 py-3 text-xs text-slate-500">Data</th>
+          <th class="text-left px-4 py-3 text-xs text-slate-500">Horário</th>
+          <th class="text-left px-4 py-3 text-xs text-slate-500">Status</th>
+          <th class="px-4 py-3 text-xs text-slate-500 text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="loading">
+          <td colspan="5" class="px-4 py-6 text-center text-slate-500">
+            Carregando agendamentos
+          </td>
+        </tr>
+
+        <tr
+          *ngFor="let item of agendamentos"
+          class="border-t border-slate-100 dark:border-slate-800 hover:bg-slate-50/80 dark:hover:bg-slate-900/60 transition"
+        >
+          <td class="px-4 py-3">{{ item.medico }}</td>
+          <td class="px-4 py-3">{{ item.data }}</td>
+          <td class="px-4 py-3">{{ item.horario }}</td>
+          <td class="px-4 py-3">
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium"
+              [ngClass]="{
+                'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300':
+                  item.status === 'ativo'
+              }"
+            >
+              {{ item.status }}
+            </span>
+          </td>
+          <td class="px-4 py-3 text-right">
+            <button
+              class="text-xs text-rose-500 hover:text-rose-600 transition transform hover:scale-105"
+              (click)="remove(item)"
+            >
+              Excluir
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="!loading && agendamentos.length === 0">
+          <td colspan="5" class="px-4 py-6 text-center text-slate-500">
+            Nenhum agendamento cadastrado.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div
+    *ngIf="showModal"
+    class="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/60"
+  >
+    <div
+      class="w-full max-w-md rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-soft p-6"
+    >
+      <h2 class="text-lg font-semibold mb-4">Novo agendamento</h2>
+
+      <div class="space-y-3">
+        <div>
+          <label class="text-xs text-slate-500">Médico</label>
+          <input
+            class="input-field mt-1"
+            [(ngModel)]="medico"
+            name="medico"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs text-slate-500">Data</label>
+            <input
+              type="date"
+              class="input-field mt-1"
+              [(ngModel)]="data"
+              name="data"
+            />
+          </div>
+          <div>
+            <label class="text-xs text-slate-500">Horário</label>
+            <input
+              type="time"
+              class="input-field mt-1"
+              [(ngModel)]="horario"
+              name="horario"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-3 mt-6">
+        <button class="btn-outline text-xs" (click)="closeModal()">
+          Cancelar
+        </button>
+        <button class="btn-primary text-xs" (click)="create()">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

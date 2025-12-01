@@ -1,0 +1,13 @@
+<div class="fixed top-4 right-4 flex flex-col gap-4 z-50">
+    <div
+      *ngFor="let toast of toastService.toasts$ | async"
+      [ngClass]="{
+        'bg-green-500 text-white': toast.type === 'success',
+        'bg-red-500 text-white': toast.type === 'error',
+        'bg-blue-500 text-white': toast.type === 'info'
+      }"
+      class="px-4 py-3 rounded-lg shadow-lg transition"
+    >
+      {{ toast.message }}
+    </div>
+  </div>

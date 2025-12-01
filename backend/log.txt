@@ -1,0 +1,5 @@
+
+> vitta-plus-backend@1.0.0 start
+> node dist/server.js
+
+Vitta+ backend rodando na porta 3333

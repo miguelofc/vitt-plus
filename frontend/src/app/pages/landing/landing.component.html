@@ -1,0 +1,86 @@
+<div
+  class="min-h-screen flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white"
+>
+  <nav class="w-full flex items-center justify-between px-8 py-6">
+    <div class="flex items-center gap-2">
+      <div
+        class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-primary via-cyan to-accent flex items-center justify-center font-bold shadow-soft"
+      >
+        V+
+      </div>
+      <span class="text-lg font-semibold">Vitta+</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a routerLink="/auth/login" class="btn-outline text-sm">Entrar</a>
+      <a routerLink="/auth/register" class="btn-primary text-sm">Criar conta</a>
+    </div>
+  </nav>
+
+  <main
+    class="flex-1 flex flex-col md:flex-row items-center justify-center px-8 md:px-20 gap-12"
+  >
+    <section class="max-w-xl space-y-6">
+      <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/60 border border-slate-700 px-3 py-1 text-xs">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        Plataforma de telemedicina em tempo real
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
+        Telemedicina moderna, agendamentos simples e chamadas em alta qualidade.
+      </h1>
+
+      <p class="text-slate-300 text-sm md:text-base">
+        O Vitta+ Premium conecta profissionais de saúde e pacientes em um fluxo fluido de
+        agendamentos, atendimentos e chamadas de vídeo seguras, com interface nível SaaS.
+      </p>
+
+      <div class="flex flex-wrap gap-3">
+        <a routerLink="/auth/register" class="btn-primary text-sm">
+          Começar agora
+        </a>
+        <a routerLink="/auth/login" class="btn-outline text-sm">
+          Já tenho conta
+        </a>
+      </div>
+
+      <div class="flex gap-6 pt-4 text-xs text-slate-400">
+        <div class="flex flex-col">
+          <span class="text-lg font-semibold text-white">WebRTC</span>
+          <span>Chamadas estáveis em alta qualidade.</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-semibold text-white">Dashboard</span>
+          <span>Visão clara de agendamentos e status.</span>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="w-full md:w-[420px] rounded-3xl bg-slate-900/80 border border-slate-800 shadow-soft p-6 space-y-4"
+    >
+      <div class="h-40 rounded-2xl bg-gradient-to-br from-primary via-cyan to-accent flex items-center justify-center text-sm">
+        
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 pt-2">
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 space-y-1">
+          <div class="text-xs text-slate-400">Agendamentos ativos</div>
+          <div class="text-2xl font-semibold">128</div>
+        </div>
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 space-y-1">
+          <div class="text-xs text-slate-400">Tempo médio</div>
+          <div class="text-2xl font-semibold">12 min</div>
+        </div>
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 space-y-1 col-span-2">
+          <div class="h-3 rounded-full bg-slate-800">
+            <div class="h-3 rounded-full bg-emerald-500 w-3/4"></div>
+          </div>
+          <div class="flex justify-between text-[10px] text-slate-400 pt-1">
+            <span>Estabilidade da chamada</span>
+            <span>Alta</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>

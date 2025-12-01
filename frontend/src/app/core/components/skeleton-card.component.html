@@ -1,0 +1,9 @@
+<div [ngClass]="gridClass">
+    <div
+      *ngFor="let item of [].constructor(count)"
+      class="animate-pulse p-6 rounded-xl bg-slate-200 dark:bg-slate-800 h-28"
+    >
+      <div class="h-4 w-2/3 bg-slate-300 dark:bg-slate-700 rounded mb-3"></div>
+      <div class="h-4 w-1/2 bg-slate-300 dark:bg-slate-700 rounded"></div>
+    </div>
+  </div>

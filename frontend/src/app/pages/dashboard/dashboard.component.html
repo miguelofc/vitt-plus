@@ -1,0 +1,49 @@
+<section class="space-y-6">
+  <header class="flex flex-col gap-2">
+    <h1 class="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+      Visão geral
+    </h1>
+    <p class="text-sm text-slate-500 dark:text-slate-400">
+      Acompanhe agendamentos, chamadas recentes e status da sua conta.
+    </p>
+  </header>
+
+  <div *ngIf="loading">
+    <app-skeleton-card [count]="3"></app-skeleton-card>
+  </div>
+
+  <div
+    *ngIf="!loading"
+    class="grid grid-cols-1 md:grid-cols-3 gap-4"
+  >
+    <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+      <div class="text-xs text-slate-500 mb-1">Total de agendamentos</div>
+      <div class="text-3xl font-semibold text-slate-900 dark:text-slate-100">
+        {{ totalAgendamentos }}
+      </div>
+      <div class="text-xs text-emerald-500 mt-1">
+        Fluxo saudável de atendimentos.
+      </div>
+    </div>
+
+    <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+      <div class="text-xs text-slate-500 mb-1">Últimas chamadas</div>
+      <div class="text-3xl font-semibold text-slate-900 dark:text-slate-100">
+        {{ ultimasChamadas }}
+      </div>
+      <div class="text-xs text-slate-400 mt-1">
+        WebRTC pronto para o próximo atendimento.
+      </div>
+    </div>
+
+    <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-soft">
+      <div class="text-xs text-slate-500 mb-1">Status da conta</div>
+      <div class="text-lg font-semibold text-emerald-500">
+        {{ statusUsuario }}
+      </div>
+      <div class="text-xs text-slate-400 mt-1">
+        Acesso completo ao painel Vitta+ Premium.
+      </div>
+    </div>
+  </div>
+</section>
