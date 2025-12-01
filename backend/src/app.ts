@@ -11,8 +11,9 @@ const app = express();
 
 app.use(cors({
   origin: [
-      "http://localhost:4200",
-      "http://192.168.1.3:4200" // 👈 AUTORIZA CELULAR NA REDE LOCAL
+    "http://localhost:4200",
+    "https://vitt-plus.onrender.com",   // caso hospede o front
+    "https://*.onrender.com"
   ],
   credentials: true
 }));

@@ -1,8 +1,8 @@
 export const environment = {
   production: false,
 
-  // 👉 Ajuste fundamental para funcionar no celular:
-  backendUrl: "http://192.168.1.3:3333",
+  
+  backendUrl: "https://vitt-plus-backend.onrender.com",
 
   firebaseConfig: {
     apiKey: "AIzaSyDHqxBF-ZLypbyJ-LIC4IW44SungfYQRdo",
